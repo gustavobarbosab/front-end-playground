@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rolagem Infinita</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #dedede;
+      font-family: Helvetica;
+      width: 60%;
+      margin: 0 auto;
+      margin-top: 3rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #888;
+    }
+
+    .item {
+      background-color: white;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .item-image {
+      width: 150px;
+      height: 150px;
+      margin: 0 2rem;
+    }
+
+    .item-name {
+      font: 2em Verdana;
+      color: #888;
+    }
+
+    .item-price {
+      font: 2em Verdana;
+      color: darkgreen;
+      margin-left: 2rem;
+    }
+
+    .item-price::before {
+      content: 'R$ ';
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="products">
+    <h2>Nossos produtos</h2>
+
+    <!-- 
+      Esse template não é visivel para o usuário, somente usado em tempo de execução para fornecer
+      uma base para a criação dos items da listagem...
+    -->
+    <template id="template"> 
+      <div class="item">
+        <img class="item-image" src="images/{{prod-image}}"></img>
+        <span class="item-name">{{prod-name}}</span>
+        <span class="item-price">{{prod-price}}</span>
+      </div>
+    </template>
+
+  </section>
+
+  <script>
+
+    function renderProducts(newProducts) {
+
+      const prodsSection = document.getElementById("products"); // busca o elemento seção
+      const template = document.getElementById("template"); // busca o elemento template
+
+      for (let product of newProducts) { // para cada novo produto
+        let html = template.innerHTML
+          .replace("{{prod-image}}", product.imagePath) // da um replace no src da imagem
+          .replace("{{prod-name}}", product.name) // da um replace no nome do produto
+          .replace("{{prod-price}}", product.price); // da um replace no preço
+
+        prodsSection.insertAdjacentHTML("beforeend", html); // insere o elemento após o ultimo item
+      };
+    }
+
+    async function loadProducts() {
+
+      try {
+        let response = await fetch("more-products.php"); // busca os produtos
+        if (!response.ok) throw new Error(response.statusText); // se erro retorna exceção
+        var products = await response.json(); // converte a resposta em json
+      }
+      catch (e) {
+        console.error(e); // imprime erro no console
+        return;
+      }
+
+      renderProducts(products); // chama a função de mostrar os produtos buscados
+    }
+
+    window.onload = function () {
+      loadProducts(); // carrega a listagem inicial
+    }
+
+    window.onscroll = function () {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { // sempre que chegar próximo ao ultimo produto carregado
+        loadProducts(); // carrega mais produtos
+      }
+    };
+
+  </script>
+
+</body>
+
+</html>

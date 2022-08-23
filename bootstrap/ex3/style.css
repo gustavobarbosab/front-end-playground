@@ -1,0 +1,15 @@
+.articleA {
+    background-color: pink;
+}
+
+.articleB {
+    background-color: greenyellow;
+}
+
+.articleC {
+    background-color: cyan;
+}
+
+article {
+    width: 100%;
+}

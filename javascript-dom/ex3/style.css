@@ -1,0 +1,53 @@
+body {
+    background-color: lightgray; /* alterando a cor do background do site */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* definindo familia de fontes a serem usadas no site*/
+}
+
+main {
+    position: absolute; /* definindo o container principal como tendo a posição absoluta */
+    left: 50%; /* Distanciando 50% da esquerda, considerando a pagina */
+    top: 50%; /* Distanciando 50% do topo */
+    transform: translate(-50%, -50%); /* movendo em -50% do topo da esquerda, considerando o container */
+    background-color: white; /* cor do background */
+    border-radius: 5px; /* adicionando arredondamento na borda */
+    padding: 20px; /* adicionando espaçamento interno */
+}
+
+button {
+    color: rgb(26, 129, 232); /* definindo cor da fonte */
+    background-color: white;
+    border: 1px solid rgb(26, 129, 232); /* definindo espessura, tipo de traço e cor da borda */
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 100%; /* definindo a largura para ocupar 100% do pai */
+    margin: 3px 0; /* definindo margem vertical de 3px e 0 para horizontal */
+}
+
+button:hover {
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#alert_container {
+    display: none; /* deixando conteudo invisivel */
+    background-color: rgba(0, 0, 0, 0.571);
+    position: fixed; /* posicionando o conteúdo fixo na tela */
+    width: 100%;
+    height: 100%;
+    top: 0; /* removendo espaçamento do topo */
+    left: 0; /* removendo espaçamento da esquerda */
+    z-index: 1; /* defindindo o indice do container no eixo z da tela */
+}
+
+#alert_content {
+    background-color: white;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center; /* alinhando texto no centro */
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Este é um ótimo formulário...">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Questão 1 - 11421BCC014</title>
+</head>
+
+<body>
+    <main>
+        <form action="cadastra-cliente.php" method="get">
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" placeholder="Informar o nome completo" autofocus required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="cel">Celular:</label>
+                <input type="tel" id="cel" name="cel">
+            </div>
+            <div>
+                <label for="telres">Tel. Residencial:</label>
+                <input type="tel" id="telres" name="telres">
+            </div>
+            <div>
+                <label for="brithday">Data de Nascimento:</label>
+                <input type="date" id="brithday" name="brithday">
+            </div>
+            <div>
+                <label for="marital">Estado Civil:</label>
+                <select name="marital" id="marital" required>
+                    <option value="single">Solteiro</option>
+                    <option value="married">Casado</option>
+                </select>
+            </div>
+            <div>
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+            </div>
+            <div>
+                <label for="rg">RG:</label>
+                <input type="text" id="rg" name="rg">
+            </div>
+            <fieldset>
+                <legend>Produtos de Interesse:</legend>
+                <div>
+                    <label for="eletronicos">Eletrônicos</label>
+                    <input type="checkbox" id="eletronicos" name="eletronicos" value="eletronicos">
+                </div>
+                <div>
+                    <label for="vestuario">Vestuário</label>
+                    <input type="checkbox" id="vestuario" name="vestuario" value="vestuario" checked>
+                </div>
+                <div>
+                    <label for="esportes">Esportes</label>
+                    <input type="checkbox" id="esportes" name="esportes" value="esportes">
+                </div>
+            </fieldset>
+            <button type="submit">Cadastrar Cliente</button>
+        </form>
+    </main>
+</body>
+
+</html>

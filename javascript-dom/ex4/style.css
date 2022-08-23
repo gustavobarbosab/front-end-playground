@@ -1,0 +1,47 @@
+body {
+    position: absolute; /* definindo o container principal como tendo a posição absoluta */
+    left: 50%; /* Distanciando 50% da esquerda, considerando a pagina */
+    top: 50%; /* Distanciando 50% do topo */
+    transform: translate(-50%, -50%); /* movendo em -50% do topo da esquerda, considerando o container */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* definindo familia de fontes a serem usadas no site*/
+}
+
+main {
+    background-color: rgb(232, 232, 232); /* cor do background */
+    border: 1px solid rgb(210, 210, 210); /* definindo espessura, tipo de traço e cor da borda */
+    padding: 20px; /* adicionando espaçamento interno */
+    border-radius: 5px; /* adicionando arredondamento na borda */
+    min-width: 280px;
+}
+
+#interest_container {
+    text-align: center; /* alinhando input no centro */
+}
+
+#interest_container input {
+    min-width: 180px; /* definindo tamanho minimo do input */
+}
+
+ol {
+    padding: 0 30px; /* padding vertical 0 e horizontal 30px */
+    margin: 10px;
+}
+
+li {
+    width: 230px;
+    background-color: rgb(189, 217, 240);
+    border: .5px solid rgb(70, 67, 212);
+    border-radius: 3px;
+    padding: 5px 10px 5px 20px;
+    margin-top: 3px;
+}
+
+
+li>button { 
+    font-size: smaller; /* define o tamanho da fonte */
+    float: right; /* define que o atributo ficara flutuando a direita */
+    color: red;
+    border: none; /* remove a borda */
+    background-color: rgb(189, 217, 240);
+    cursor: pointer; /* define o tipo de cursor ao passar o mouse */
+}

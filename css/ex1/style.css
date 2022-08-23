@@ -1,0 +1,27 @@
+body {
+    background-color: #ddd;
+    font-family: 'Helvetica Neue';
+    line-height: 1.5;
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+main {
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #444;
+}
+
+section {
+    border-top: grey 1px solid;
+}
+
+h1,
+h2 {
+    color: rgb(140, 76, 8);
+    margin-top: 0px;
+}

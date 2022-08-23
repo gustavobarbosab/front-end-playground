@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fatos sobre gatos</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5rem;
+      background-color: #ddd;
+      color: #555;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      margin: 0;
+      padding: 2% 4%;
+      background-color: #eee;
+
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -10%);
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    li {
+      display: block;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1>Fatos sobre gatos</h1>
+    <ul id="facts">
+    </ul>
+  </main>
+
+  <script>
+
+    async function buscaFatos() {
+
+      try {
+        // Infelizmente a API está quebrada e não está retornando mais que 1 registro...
+        // mas o código está pronto pra isso...
+        const response = await fetch('https://meowfacts.herokuapp.com/');
+        if (!response.ok) throw new Error(response.statusText);
+
+        factResponse = await response.json();
+
+        let factsList = document.getElementById("facts");
+        factResponse.data.forEach(element => {
+          var li = document.createElement("li");
+          li.appendChild(document.createTextNode(element));
+          factsList.appendChild(li);
+        });
+
+
+      } catch (error) {
+        console.log(error);
+        alert('Não foi possível obter fatos sobre cachorros');
+      }
+    }
+
+    window.onload = function () {
+      buscaFatos();
+    }
+
+  </script>
+
+</body>
+
+</html>
